@@ -35,10 +35,11 @@
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     (при изменении политики для всей системы могут потребоваться права администратора).
     
-.COPYRIGHT
-    Автор: t3hc0nnect10n
-    Лицензия: CC BY-NC 4.0
-    (c) 2026 t3hc0nnect10n
+.NOTES
+	COPYRIGHT:
+     - Автор: t3hc0nnect10n
+     - Лицензия: CC BY-NC 4.0
+     - (c) 2026 t3hc0nnect10n
 #>
 
 # Параметры
@@ -72,5 +73,6 @@ if (Test-Path -Path "$($Path)\backup_key\lpaes.key") {
 $shell = New-Object -ComObject Wscript.Shell
 
 [void]($shell.popup("Создан закрытый ключ.`n$($Path)\lpaes.key", 0, "Результат", 0 + 64 + 4096))
+
 
 
