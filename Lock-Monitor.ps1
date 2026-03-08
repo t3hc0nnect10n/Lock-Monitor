@@ -20,6 +20,26 @@
     | 6. Финальная очистка артефактов         |
     |=========================================|
 
+	|========================================|
+	|   Вспомогательные функции              |
+	|========================================|
+	|                                        |
+	| Ввод и проверки:                       |
+	| - Set-Server                           |
+	| - Set-User                             |
+	|                                        |
+	| Криптография:                          |
+	| - Get-KeyBytesFromFile                 |
+	| - Get-EncryptedPinPayload              |
+	|                                        |
+	| Работа с удаленной задачей:            |
+	| - Register-LockPinTask                 |
+	| - Start-LockPinTask                    |
+	| - Get-RemoteState                      |
+	| - Cleanup-RemoteArtifacts              |
+	|                                        |
+	|========================================|
+
 	Для работы сценария требуется настроенная служба - Windows Remote Management (WinRM).
     https://learn.microsoft.com/en-us/windows/win32/winrm/portal
 
@@ -31,26 +51,6 @@
     Лицензия: CC BY-NC 4.0
     (c) 2026 t3hc0nnect10n
 #>
-
-# |========================================|
-# |   Вспомогательные функции              |
-# |========================================|
-# |                                        |
-# | Ввод и проверки:                       |
-# | - Set-Server                           |
-# | - Set-User                             |
-# |                                        |
-# | Криптография:                          |
-# | - Get-KeyBytesFromFile                 |
-# | - Get-EncryptedPinPayload              |
-# |                                        |
-# | Работа с удаленной задачей:            |
-# | - Register-LockPinTask                 |
-# | - Start-LockPinTask                    |
-# | - Get-RemoteState                      |
-# | - Cleanup-RemoteArtifacts              |
-# |                                        |
-# |========================================|
 
 # Параметры
 param(
@@ -436,5 +436,6 @@ if ($SetServer -and $SetUser) {
 echo ""
 
 Read-Host "Для завершения нажмите клавишу `"Enter`""
+
 
 
