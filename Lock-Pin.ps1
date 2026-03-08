@@ -54,10 +54,11 @@
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     (при изменении политики для всей системы могут потребоваться права администратора).
     
-.COPYRIGHT
-    Автор: t3hc0nnect10n
-    Лицензия: CC BY-NC 4.0
-    (c) 2026 t3hc0nnect10n
+.NOTES
+	COPYRIGHT:
+     - Автор: t3hc0nnect10n
+     - Лицензия: CC BY-NC 4.0
+     - (c) 2026 t3hc0nnect10n
 #>
 
 # Параметры
@@ -644,6 +645,7 @@ try {
     }
 
 }
+
 
 
 
