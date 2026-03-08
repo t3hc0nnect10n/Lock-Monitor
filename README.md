@@ -85,7 +85,7 @@ Unlock --> Cleanup[Удаление ключей и файлов]
 |   Требование   | Описание |
 |----------------|----------|
 | **WinRM**      | Должна быть настроена служба Windows Remote Management для удалённого выполнения.<br>[Документация Microsoft](https://learn.microsoft.com/ru-ru/windows/win32/winrm/portal) |
-| **PowerShell 5.1** | Политика выполнения должна разрешать запуск скриптов.<br>[Документация Microsoft](https://learn.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5) |
+| **PowerShell 5.1+** | Политика выполнения должна разрешать запуск скриптов.<br>[Документация Microsoft](https://learn.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5) |
 |**RSAT-AD-PowerShell** | Средства удаленного администрирования сервера для Windows.<br>[Документация Microsoft](https://learn.microsoft.com/ru-ru/troubleshoot/windows-server/system-management-components/remote-server-administration-tools)|
 |**Win-PS2EXE**| Компилирует скрипты PowerShell в исполняемые файлы.<br>[Инструкция](https://github.com/MScholtes/PS2EXE)|
 
