@@ -291,7 +291,7 @@ Install-Module ps2exe -Scope CurrentUser
 ## Lock Monitor
 
 ```powershell
-Invoke-ps2exe .\Lock-Monitor.ps1 .\Lock-Monitor.exe
+Invoke-ps2exe .\Lock-Monitor.ps1 -outputFile  .\Lock-Monitor.exe
 ```
 
 ---
@@ -305,7 +305,7 @@ Invoke-ps2exe .\Lock-Monitor.ps1 .\Lock-Monitor.exe
 * `-noError`
 
 ```powershell
-Invoke-ps2exe .\Lock-Pin.ps1 .\Lock-Pin.exe -noConsole -noOutput -noError
+Invoke-ps2exe .\Lock-Pin.ps1 -outputFile  .\Lock-Pin.exe -noConsole -noOutput -noError
 ```
 
 <p align="right"><a href="#readme-top">🔝</a></p>
