@@ -1,3 +1,4 @@
+<a name="readme-top"></a>
 # Lock Monitor
 
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
@@ -285,3 +286,5 @@ Invoke-ps2exe .\Lock-Monitor.ps1 .\Lock-Monitor.exe
 ```powershell
 Invoke-ps2exe .\Lock-Pin.ps1 .\Lock-Pin.exe -noConsole -noOutput -noError
 ```
+
+<p align="right"><a href="#readme-top">🔝</a></p>
