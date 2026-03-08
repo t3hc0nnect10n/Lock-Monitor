@@ -177,7 +177,7 @@ lprun.token
 
 ---
 
-##    Lock-Pin.ps1
+## Lock-Pin.ps1
 
 Локальный скрипт блокировки экрана.
 
