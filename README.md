@@ -1,13 +1,17 @@
 <a name="readme-top"></a>
 
+<div align="center">
+ 
 # Lock Monitor
 
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
-![Windows](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge&logo=windows&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-Server-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=for-the-badge)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 Позволяет администратору мгновенно ограничить доступ к рабочему месту пользователя
 и автоматически восстановить блокировку после перезагрузки системы.
+
+</div>
 
 ---
 
