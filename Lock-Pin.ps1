@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-    Version 1.0.0.0
+    Version 1.0.0.1
     Сценарий запускает экран блокировки и снимает блокировку только после ввода корректного PIN.
     Работает совместно с Lock-Monitor.ps1 и использует lpaes.key/lpkey.txt/lprun.token.
     Назначение:
@@ -70,7 +70,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 # Базовые пути к служебным файлам (по умолчанию рядом со скриптом/EXE)
-$script:RemoteBasePath = if ($PSScriptRoot) { $PSScriptRoot } else { 'C:\Windows\Temp' }
+$script:RemoteBasePath = if ($PSScriptRoot) { $PSScriptRoot } else { "C:\Users\$($env:USERNAME)" }
 $script:Path_lpaes     = $script:RemoteBasePath
 $script:Path_lpkey     = $script:RemoteBasePath
 $script:Path_lprun     = $script:RemoteBasePath
