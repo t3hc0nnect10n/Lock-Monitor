@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-	Version 1.0.0.0 
+	Version 1.0.0.1 
 	Сценарий предназначен для удаленной блокировки пользовательской сессии до ввода PIN-кода.
     Работает совместно с Lock-Pin.ps1.
     Назначение:
@@ -263,7 +263,7 @@ function Cleanup-RemoteArtifacts {
 
         Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
         foreach ($item in $FilesToDelete) {
-            Remove-Item -LiteralPath $item -Force -ErrorAction SilentlyContinue
+            Remove-Item -LiteralPath $item -Force -Confirm:$false -ErrorAction SilentlyContinue
         }
     } -ArgumentList $TaskName, $FilesToDelete -ErrorAction Stop
 }
@@ -274,7 +274,7 @@ function Cleanup-RemoteArtifacts {
 
 echo ""
 Write-Host "Made by t3hc0nnect10n (c) 2026" -ForegroundColor Gray
-Write-Host "Version 1.0" -ForegroundColor Gray
+Write-Host "Version 1.0.0.1" -ForegroundColor Gray
 
 echo ""
 Write-Host "########################################################################" -ForegroundColor Magenta
@@ -315,7 +315,7 @@ if ($SetServer -and $SetUser) {
     $UserPrincipal = "$($defaultDomain)\$($UserName)"
     $TaskName = "LockPinTask"
 
-    $RemoteDir     = "C:\Windows\Temp"
+    $RemoteDir     = "C:\Users\$($UserName)"
     $ScriptRemote  = Join-Path $RemoteDir "Lock Pin.exe"
     $PngRemote     = Join-Path $RemoteDir "$($namePNG)"
     $KeyRemote     = Join-Path $RemoteDir "lpaes.key"
@@ -361,13 +361,13 @@ if ($SetServer -and $SetUser) {
 
     try {
         # Подготовка артефактов на удалённом ПК
-        Copy-Item -LiteralPath $SourceScript -Destination "\\$Server\C$\Windows\Temp\Lock Pin.exe" -Force
-        Copy-Item -LiteralPath $SourcePng -Destination "\\$Server\C$\Windows\Temp\$($namePNG)" -Force
-        Copy-Item -LiteralPath $LocalAES -Destination "\\$Server\C$\Windows\Temp\lpaes.key" -Force
+        Copy-Item -LiteralPath $SourceScript -Destination "\\$Server\C$\Users\$($UserName)\Lock Pin.exe" -Force
+        Copy-Item -LiteralPath $SourcePng -Destination "\\$Server\C$\Users\$($UserName)\$($namePNG)" -Force
+        Copy-Item -LiteralPath $LocalAES -Destination "\\$Server\C$\Users\$($UserName)\lpaes.key" -Force
 
-        Set-Content -LiteralPath "\\$Server\C$\Windows\Temp\lpkey.txt" -Value $payload.EncryptedPin -Encoding ASCII -Force
-        Set-Content -LiteralPath "\\$Server\C$\Windows\Temp\lprun.token" -Value $RunToken -Encoding ASCII -Force
-        Remove-Item -LiteralPath "\\$Server\C$\Windows\Temp\lpunlock.ok" -Force -ErrorAction SilentlyContinue
+        Set-Content -LiteralPath "\\$Server\C$\Users\$($UserName)\lpkey.txt" -Value $payload.EncryptedPin -Encoding ASCII -Force
+        Set-Content -LiteralPath "\\$Server\C$\Users\$($UserName)\lprun.token" -Value $RunToken -Encoding ASCII -Force
+        Remove-Item -LiteralPath "\\$Server\C$\Users\$($UserName)\lpunlock.ok" -Force -ErrorAction SilentlyContinue
 
         Register-LockPinTask -Server $Server -TaskName $TaskName -UserPrincipal $UserPrincipal -ExeRemote $ScriptRemote
     } catch {
